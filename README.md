@@ -26,6 +26,8 @@ gradlew unittest
 ```bash
 gradlew connectedAndroidTest
 ```
+## GitHUB Action
+- Click on Action you will find artifact .APK is uploaded for each PR merge.
 
 ## The app contains 2 screen
 
