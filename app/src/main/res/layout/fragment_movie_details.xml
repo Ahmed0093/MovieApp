@@ -1,0 +1,80 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp_25"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="The Miseducation ssssssssssssssssssssssaw Cameron Post"
+        app:layout_constraintEnd_toStartOf="@+id/rating_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/movieYearTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="2018"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/movieGenresTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="2018"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/titleTv"
+        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+    <TextView
+        android:id="@+id/movieCastTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="2018"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/titleTv"
+        app:layout_constraintTop_toBottomOf="@+id/movieGenresTv" />
+
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rating_bar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieCastTv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFlicker"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_marginTop="@dimen/dp_25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rating_bar"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/movie_flicker_item"
+        app:spanCount="2"
+        tools:itemCount="17"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
