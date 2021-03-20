@@ -47,7 +47,8 @@ gradlew connectedAndroidTest
 
 ### TO DO
  
--Adding More Scripts From GithubAction
+-Adding ViewBinding
+-Using jetPackCompose
 
 
 ## Acknowledgments
