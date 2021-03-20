@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_66">66dp</dimen>
+    <dimen name="dp_57">57dp</dimen>
+    <dimen name="dp_330">330dp</dimen>
+    <dimen name="dp_300">300dp</dimen>
+    <dimen name="sp_30">30sp</dimen>
+    <dimen name="dp_186">186dp</dimen>
+    <dimen name="dp_107">107dp</dimen>
+    <dimen name="dp_325">325dp</dimen>
+    <dimen name="dp_83">83dp</dimen>
+    <dimen name="dp_68">68dp</dimen>
+    <dimen name="sp_24">24sp</dimen>
+    <dimen name="dp_134">134dp</dimen>
+    <dimen name="dp_182">182dp</dimen>
+    <dimen name="dp_111">111dp</dimen>
+    <dimen name="dp_88">88dp</dimen>
+    <dimen name="dp_259">259dp</dimen>
+    <dimen name="dp_65">65dp</dimen>
+    <dimen name="dp_84">84dp</dimen>
+    <dimen name="dp_208">208dp</dimen>
+    <dimen name="dp_215">215dp</dimen>
+    <dimen name="dp_230">230dp</dimen>
+    <dimen name="dp_90">90dp</dimen>
+    <dimen name="bm_balance_line_height">10dp</dimen>
+    <dimen name="dp_115">115dp</dimen>
+    <dimen name="sp_42">42sp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_0">0dp</dimen>
+
+</resources>
