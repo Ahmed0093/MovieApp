@@ -17,6 +17,16 @@ jobs:
       run: ./gradlew build
     - name: UnitTest
       run: ./gradlew test
+    - name: Run Instrumentation Tests
+      uses: malinskiy/action-android/emulator-run-cmd@release/0.0.3
+      with:
+         cmd: ./gradlew connectedCheck --stacktrace
+         api: 23
+         tag: default
+         abi: x86
+
+    - name: Reclaim Memory
+      run: ./gradlew --stop && jps|grep -E 'KotlinCompileDaemon|GradleDaemon'| awk '{print $1}'| xargs kill -9
       
   apk:
     name: Generate APK
