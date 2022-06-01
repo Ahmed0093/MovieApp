@@ -2,17 +2,7 @@ name: Build & runTest
 on:
  push:
 
-jobs:
-  VPN_Coonect:
-    runs-on: ubuntu-latest
-    steps:
-    - name: git-bash
-      run: |
-          sudo apt-get install openconnect
-          echo installed openConnect
-          challange=447957 && sudo -S <<< "230840" echo I am super user && { printf '230840\n'; sleep 1; printf "$challange\n"; } | sudo openconnect -v --authgroup CLUSTER-DLCE -u anaphory --csd-wrapper=app/csd-wrapper.sh bmv3.banquemisr.com/DTVPN --user aaabdelgawad --passwd-on-stdin
-          echo VPN connected   
-         
+jobs:        
   URL_OPEN:
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +14,7 @@ jobs:
           echo 3
           echo 4
           echo 5
-          curl -Is http://stackoverflow.com/questions/21597851/how-to-check-whether-url-is-working-or-not-through-linux-shell | head -n 1
+          curl -Is https://www.google.com.eg/ | head -n 1
 
       
  
