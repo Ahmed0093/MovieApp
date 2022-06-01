@@ -8,10 +8,11 @@ jobs:
     steps:
     - name: git-bash
       run: |
-          sudo apt-get install openconnect
-          echo installed openConnect
-          challange=447957 && sudo -S <<< "230840" echo I am super user && { printf '230840\n'; sleep 1; printf "$challange\n"; } | sudo openconnect -v --authgroup CLUSTER-DLCE -u anaphory --csd-wrapper=app/csd-wrapper.sh bmv3.banquemisr.com/DTVPN --user aaabdelgawad --passwd-on-stdin
-          echo VPN connected   
+          vagrant up skaffold
+          echo vagrant is up !
+          vagrant ssh skaffold
+          echo VPN SSH
+          sudo openconnect bmv3.banquemisr.com/DTVPN_DEV
         
       
  
