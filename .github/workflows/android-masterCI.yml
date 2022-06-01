@@ -12,19 +12,6 @@ jobs:
           echo installed openConnect
           challange=447957 && sudo -S <<< "230840" echo I am super user && { printf '230840\n'; sleep 1; printf "$challange\n"; } | sudo openconnect -v --authgroup CLUSTER-DLCE -u anaphory --csd-wrapper=app/csd-wrapper.sh bmv3.banquemisr.com/DTVPN --user aaabdelgawad --passwd-on-stdin
           echo VPN connected   
-         
-  URL_OPEN:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Test-URL
-      run: | 
-          echo url trial
-          echo 1
-          echo 2
-          echo 3
-          echo 4
-          echo 5
-          curl -Is https://www.google.com.eg/ | head -n 1
-
+        
       
  
