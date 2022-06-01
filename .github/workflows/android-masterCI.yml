@@ -26,5 +26,5 @@ jobs:
       run: vagrant ssh -c "echo y | sudo apt-get install openconnect"
       
     - name: VPN
-      run: vagrant ssh -c "sudo openconnect -v  bmv3.banquemisr.com/DTVPN_DEV"
+      run: vagrant ssh -c "sudo openconnect --csd-wrapper=app/csd-wrapper.sh bmv3.banquemisr.com/DTVPN_DEV"
         
