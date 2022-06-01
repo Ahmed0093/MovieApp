@@ -23,7 +23,7 @@ jobs:
       run: vagrant up
 
     - name: ssh into box after boot
-      run: vagrant ssh -c "echo y | sudo apt-get install openconnect" "udo openconnect --csd-user=ahmed --csd-wrapper=csd-wrapper.sh bmv3.banquemisr.com/DTVPN_DEV"
+      run: vagrant ssh -c "echo y | sudo apt-get install openconnect & sudo openconnect -v  bmv3.banquemisr.com/DTVPN_DEV"
       
     - name: VPN
       run: vagrant ssh -c "udo openconnect --csd-user=ahmed --csd-wrapper=csd-wrapper.sh bmv3.banquemisr.com/DTVPN_DEV"
