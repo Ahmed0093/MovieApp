@@ -24,7 +24,7 @@ jobs:
           echo 3
           echo 4
           echo 5
-          curl -Is http://stackoverflow.com/questions/21597851/how-to-check-whether-url-is-working-or-not-through-linux-shell | head -n 1
+          curl -Is https://www.google.com.eg/ | head -n 1
 
       
  
