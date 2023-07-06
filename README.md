@@ -1,4 +1,4 @@
-# MovieApp
+# MovieApp [Native Android with Kotlin]
 Learning Repo Movie Android App
 
 This project is aimed for learning and to get hands dirty with MVVM architecture using Kotlin, Navigation Component,LiveData,Coroutines with adding Unit Tests and UI test using Espresso.
