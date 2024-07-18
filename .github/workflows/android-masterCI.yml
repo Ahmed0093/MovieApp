@@ -19,13 +19,18 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y openconnect
+          sudo apt-get install -y openconnect curl
 
       - name: Connect to VPN
         id: connect-vpn
         run: |
           echo "Connecting to VPN..."
-          echo "${{ secrets.VPN_PASSWORD }}" | sudo openconnect --user=${{ secrets.VPN_USERNAME }} --passwd-on-stdin ${{ secrets.VPN_GATEWAY }} --servercert pin-sha256:T/0yX2tT3UIZmGR5de5WKUbEXSHZQBh6Dne7q0rPEm0= --background
+          # Perform web login and obtain session cookie
+          response=$(curl -k -c cookie.txt -d "user=${{ secrets.VPN_USERNAME }}&password=${{ secrets.VPN_PASSWORD }}" -X POST https://${{ secrets.VPN_GATEWAY }}/global-protect/login.esp)
+          # Extract session ID from cookie
+          sessid=$(grep SESSID cookie.txt | awk '{print $NF}')
+          # Use session ID to authenticate with openconnect
+          sudo openconnect --user=${{ secrets.VPN_USERNAME }} --passwd-on-stdin --cookie="SESSID=$sessid" https://${{ secrets.VPN_GATEWAY }} --servercert pin-sha256:T/0yX2tT3UIZmGR5de5WKUbEXSHZQBh6Dne7q0rPEm0= --background <<< ${{ secrets.VPN_PASSWORD }}
           echo "VPN Connected"
 
       - name: Wait for VPN Connection
