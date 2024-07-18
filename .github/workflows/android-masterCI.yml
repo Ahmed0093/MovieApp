@@ -26,7 +26,7 @@ jobs:
           # Extract session ID from cookie
           sessid=$(grep SESSID cookie.txt | awk '{print $NF}')
           # Use session ID to authenticate with openconnect, bypassing certificate verification
-          sudo openconnect --user=aaabdelgawad --passwd-on-stdin --cookie="SESSID=$sessid" https://213.42.155.161 --servercert pin-sha256:T/0yX2tT3UIZmGR5de5WKUbEXSHZQBh6Dne7q0rPEm0= --insecure --background <<< 123
+          sudo openconnect --user=aaabdelgawad --passwd-on-stdin --cookie="SESSID=$sessid" https://213.42.155.161 --servercert pin-sha256:T/0yX2tT3UIZmGR5de5WKUbEXSHZQBh6Dne7q0rPEm0= --no-system-trust --background <<< 123
           echo "VPN Connected"
 
       - name: Test VPN connection
