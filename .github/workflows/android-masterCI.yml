@@ -25,7 +25,7 @@ jobs:
         id: connect-vpn
         run: |
           echo "Connecting to VPN..."
-          echo "${{ secrets.VPN_PASSWORD }}" | sudo openconnect --user=${{ secrets.VPN_USERNAME }} --passwd-on-stdin ${{ secrets.VPN_GATEWAY }} --background
+          echo "${{ secrets.VPN_PASSWORD }}" | sudo openconnect --user=${{ secrets.VPN_USERNAME }} --passwd-on-stdin ${{ secrets.VPN_GATEWAY }} --servercert pin-sha256:T/0yX2tT3UIZmGR5de5WKUbEXSHZQBh6Dne7q0rPEm0= --background
           echo "VPN Connected"
 
       - name: Wait for VPN Connection
