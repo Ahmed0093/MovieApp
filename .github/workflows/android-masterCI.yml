@@ -3,7 +3,7 @@ name: Connect to VPN
 on:
   push:
     branches:
-      - master
+      - Ahmed0093-testGlobalProtec
 
 jobs:
   connect-vpn:
