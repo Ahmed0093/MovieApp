@@ -1,38 +1,34 @@
-name: Build & runTest
+name: Connect to VPN
+
 on:
- push:
+  push:
+    branches:
+      - Ahmed0093-testGlobalProtec
 
 jobs:
-  build:
+  connect-vpn:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Make Gradle executable
-      run: chmod +x ./gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
-    - name: UnitTest
-      run: ./gradlew test
-      
-  apk:
-    name: Generate APK
-    runs-on: ubuntu-18.04
 
     steps:
-      - uses: actions/checkout@v1
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
-    
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openconnect curl
+
+      - name: Connect to VPN
+        run: |
+          echo "Connecting to VPN..."
+          # Perform web login and obtain session cookie
+          response=$(curl -k -c cookie.txt -d "user=aaabdelgawad&password=123" -X POST https://213.42.155.161/global-protect/login.esp)
+          # Extract session ID from cookie
+          sessid=$(grep SESSID cookie.txt | awk '{print $NF}')
+          # Use session ID to authenticate with openconnect, bypassing certificate verification
+          sudo openconnect --user=aaabdelgawad --passwd-on-stdin --cookie="SESSID=$sessid" https://213.42.155.161 --servercert pin-sha256:T/0yX2tT3UIZmGR5de5WKUbEXSHZQBh6Dne7q0rPEm0= --no-system-trust --background <<< 123
+          echo "VPN Connected"
+
+      - name: Test VPN connection
+        run: |
+          curl -v https://example.com  # Replace with a URL to test the VPN connection
